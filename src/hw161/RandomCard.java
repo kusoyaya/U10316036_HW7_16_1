@@ -9,6 +9,6 @@ public class RandomCard {
 			System.out.println(a.getRandomCard());
 	}
 	public String getRandomCard(){
-		return ""+flower[(int)(Math.random()*4)]+(int)(Math.random()*13+1);
+		return ""+flower[(int)(Math.random()*4)]+(int)(Math.random()*13+1);//得到牌名
 	}
 }
