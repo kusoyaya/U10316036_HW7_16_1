@@ -21,6 +21,10 @@ import java.util.ArrayList;
 public class GUI extends JFrame {
 
 	private JPanel contentPane;
+	private JLabel a;
+	private JLabel b;
+	private JLabel c;
+	private JLabel d;
 
 	/**
 	 * Launch the application.
@@ -51,30 +55,23 @@ public class GUI extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);//設定排版
 		
-		ImageIcon a = new ImageIcon("cards/"+r.getRandomCard()+".png");
-		ImageIcon b = new ImageIcon("cards/"+r.getRandomCard()+".png");
-		ImageIcon c = new ImageIcon("cards/"+r.getRandomCard()+".png");
-		ImageIcon d = new ImageIcon("cards/"+r.getRandomCard()+".png");//建立 imageicon
-		
-		ArrayList<ImageIcon> i = new ArrayList<ImageIcon>();
-		i.add(a);
-		i.add(b);
-		i.add(c);
-		i.add(d);//建立 arraylist 方便管理
 		
 		JPanel cardDisplay = new JPanel();
 		contentPane.add(cardDisplay, BorderLayout.CENTER);
 		
-		JLabel labelA = new JLabel(a);
+		
+		
+		
+		JLabel labelA = new JLabel(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
 		cardDisplay.add(labelA);
 		
-		JLabel labelB = new JLabel(b);
+		JLabel labelB = new JLabel(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
 		cardDisplay.add(labelB);
 		
-		JLabel labelC = new JLabel(c);
+		JLabel labelC = new JLabel(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
 		cardDisplay.add(labelC);
 		
-		JLabel labelD = new JLabel(d);
+		JLabel labelD = new JLabel(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
 		cardDisplay.add(labelD);//建立 jlabel，把 imageicon 掛上去
 		
 		JPanel buttonPanel = new JPanel();
@@ -83,16 +80,10 @@ public class GUI extends JFrame {
 		JButton refreashButton = new JButton("refresh");//建立按鍵
 		refreashButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(ImageIcon c : i){
-					Image image = null;
-					try{
-						image = ImageIO.read(new File("cards/"+r.getRandomCard()+".png"));//讀取圖片
-					}catch(Exception ex){
-						 System.err.println("Cannot find image");
-					}
-					c.setImage(image);//設定圖片
-				}
-				cardDisplay.repaint();//重新繪製
+				labelA.setIcon(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
+				labelB.setIcon(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
+				labelC.setIcon(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
+				labelD.setIcon(new ImageIcon(GUI.class.getResource(r.getRandomCard()+".png")));
 			}
 		});//設定按下後的動作
 		buttonPanel.add(refreashButton);
